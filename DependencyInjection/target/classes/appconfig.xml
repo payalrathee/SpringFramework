@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           https://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+   <context:annotation-config/>
+
+    <bean class="org.example.Address" name="a1">
+        <property name="hNo" value="23"/>
+        <property name="city" value="Rohtak"/>
+    </bean>
+    <bean class="org.example.Address" name="a2">
+        <property name="hNo" value="67"/>
+        <property name="city" value="Rohtak"/>
+    </bean>
+    <bean name="s1" class="org.example.Student" init-method="init" destroy-method="destroy">
+        <property name="id">
+            <value>101</value>
+        </property>
+        <property name="name">
+            <value>Payal</value>
+        </property>
+        <property name="address">
+            <ref bean="a1"/>
+        </property>
+        <property name="courses">
+            <list>
+                <value>Core Java</value>
+                <value>Spring</value>
+                <value>Hibernate</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.example.Student" name="s2">
+        <property name="id" value="102"/>
+        <property name="name" value="Bhawna"/>
+        <property name="address" ref="a2"/>
+        <property name="courses">
+            <list>
+                <value>C++</value>
+                <value>Django</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.example.Student" name="s3">
+        <constructor-arg>
+            <value>103</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value>Anjali</value>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="a1"/>
+        </constructor-arg>
+        <constructor-arg>
+            <list>
+                <value>Tailwind</value>
+                <value>CSS</value>
+            </list>
+        </constructor-arg>
+    </bean>
+    <bean class="org.example.Student" name="s4">
+        <constructor-arg value="104" type="int"/>
+        <constructor-arg value="Kavita" type="String"/>
+        <constructor-arg ref="a2" type="Address"/>
+        <constructor-arg>
+            <list>
+                <value>HTML</value>
+                <value>Javascript</value>
+            </list>
+        </constructor-arg>
+    </bean>
+    <bean class="org.example.Teacher" name="t">
+        <constructor-arg value="111" type="int"/>
+        <constructor-arg value="121" type="String"/>
+    </bean>
+</beans>

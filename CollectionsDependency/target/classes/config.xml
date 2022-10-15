@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           https://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/util
+                           http://www.springframework.org/schema/util/spring-util.xsd">
+    <context:annotation-config/>
+<!--    <bean class="org.example.Student" id="s">-->
+<!--        <constructor-arg value="10"/>-->
+<!--        <constructor-arg value="Priya"/>-->
+<!--        <constructor-arg>-->
+<!--            <set>-->
+<!--                <value>9215331448</value>-->
+<!--                <value>7056570991</value>-->
+<!--                <value>7015507338</value>-->
+<!--            </set>-->
+<!--        </constructor-arg>-->
+<!--        <constructor-arg>-->
+<!--            <list>-->
+<!--                <value>BTech</value>-->
+<!--                <value>MTech</value>-->
+<!--            </list>-->
+<!--        </constructor-arg>-->
+<!--        <constructor-arg>-->
+<!--            <map>-->
+<!--                <entry key="Hibernate" value="1"/>-->
+<!--                <entry key="Spring" value="2"/>-->
+<!--                <entry key="MySQL" value="1"/>-->
+<!--            </map>-->
+<!--        </constructor-arg>-->
+<!--        <constructor-arg>-->
+<!--            <props>-->
+<!--                <prop key="Core Java">Intermediate</prop>-->
+<!--                <prop key="SQL">Intermediate</prop>-->
+<!--                <prop key="HTML/CSS">Basic</prop>-->
+<!--            </props>-->
+<!--        </constructor-arg>-->
+<!--    </bean>-->
+
+    <util:set set-class="java.util.LinkedHashSet" id="phnNo">
+        <value>9312552334</value>
+        <value>8723546787</value>
+    </util:set>
+    <util:list id="degree">
+        <value>BA</value>
+        <value>MA</value>
+    </util:list>
+    <util:map id="courses">
+        <entry key="Django" value="2"/>
+        <entry key="Bootstrap" value="1"/>
+    </util:map>
+    <util:properties id="skills">
+        <prop key="Python">Intermediate</prop>
+        <prop key="MongoDB">Intermediate</prop>
+    </util:properties>
+    <bean class="org.example.Student" id="ss">
+        <constructor-arg value="12" type="int"/>
+        <constructor-arg value="Nisha"/>
+        <constructor-arg ref="phnNo"/>
+        <constructor-arg ref="degree"/>
+        <constructor-arg ref="courses"/>
+        <constructor-arg ref="skills"/>
+    </bean>
+</beans>
