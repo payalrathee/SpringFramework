@@ -1,10 +1,16 @@
-import forms.DeleteForm;
-import forms.InsertForm;
-import forms.MainForm;
-import forms.UpdateForm;
+import beans.Student;
+import context.ContextProvider;
+import dao.StudentDao;
+import org.springframework.context.ApplicationContext;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        new MainForm();
+        ApplicationContext ctx= ContextProvider.provideContext();
+        StudentDao studentDao=ctx.getBean("stDao",StudentDao.class);
+
+        //delete
+        studentDao.delete(102);
     }
 }

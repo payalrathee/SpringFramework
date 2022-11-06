@@ -1,5 +1,6 @@
 package beans;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -8,7 +9,9 @@ import javax.persistence.Table;
 @Table(name="Student_Details")
 public class Student {
     @Id
+    @Column(name="Student_Id")
     private int id;
+    @Column(name="Student_Name")
     private String name;
 
     public Student() {
