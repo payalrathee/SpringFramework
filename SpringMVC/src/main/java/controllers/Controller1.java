@@ -14,6 +14,18 @@ import beans.User;
 @Controller
 @RequestMapping("/springMVC")
 public class Controller1 {
+	@RequestMapping("/homePage")
+	public String homePage()
+	{
+		return "home";
+	}
+	
+	@RequestMapping("/formHandler")
+	public String formHandler()
+	{
+		return "main";
+	}
+	
 	@ModelAttribute
 	public void common(Model model)
 	{
