@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           https://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+   <bean name="address" class="com.example.springPractice.basic.Address">
+   		<property name="hno" value="101" />
+   		<property name="adrs" value="Happy Street"/>
+   </bean>
+   
+   <bean name="address2" class="com.example.springPractice.basic.Address">
+   		<property name="hno" value="102" />
+   		<property name="adrs" value="Sad Street"/>
+   </bean>
+   
+   <context:annotation-config/>
+   <bean name="student" class="com.example.springPractice.basic.Student" autowire="byName">
+   		<property name="id" value="110"/>
+   		<property name="name" value="John"/>
+   		<property name="subjects">
+   			<list>
+   				<value>Math</value>
+   				<value>Science</value>
+   				<value>English</value>
+   			</list>
+   		</property>
+   		<property name="marks">
+   			<map>
+   				<entry key="Math" value="90"/>
+   				<entry key="Science" value="95" />
+   				<entry key="Englsh" value="98"/>
+   			</map>
+   		</property>
+
+   </bean>
+   
+   <bean name="student1" class="com.example.springPractice.basic.Student" autowire="constructor">
+   		<constructor-arg name="id" value="110"/>
+   		<constructor-arg name="name" value="John"/>
+   		<constructor-arg name="subjects">
+   			<list>
+   				<value>Math</value>
+   				<value>Science</value>
+   				<value>English</value>
+   			</list>
+   		</constructor-arg>
+   		<constructor-arg name="marks">
+   			<map>
+   				<entry key="Math" value="90"/>
+   				<entry key="Science" value="95" />
+   				<entry key="Englsh" value="98"/>
+   			</map>
+   		</constructor-arg>
+		
+   </bean>
+</beans>
