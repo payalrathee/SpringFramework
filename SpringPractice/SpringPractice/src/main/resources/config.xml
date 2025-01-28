@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           https://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/util
+                           http://www.springframework.org/schema/util/spring-util.xsd">
+   <context:annotation-config/>
+   
+   <!--
+   <util:list id="projects" list-class="java.util.ArrayList">
+   		<value>DocKeeper</value>
+   		<value>Search Application</value>
+   </util:list>
+   
+   <util:set id="adrs" set-class="java.util.HashSet">
+   		<ref bean="adrs1"/>
+   		<ref bean="adrs2"/>
+   </util:set>
+   
+   <util:map id="skills">
+   		<entry key="Python" value="Intermediate"/>
+   		<entry key="ML" value="Advance"/>
+   </util:map>
+   
+    <bean class="spring.SpringPractice.Address" name="adrs1">
+    	<property name="hno" value="12"/>
+    	<property name="area" value="abc"/>
+    	<property name="city" value="LA"/>
+    	<property name="country" value="US"/>
+    </bean>
+    
+    <bean class="spring.SpringPractice.Address" name="adrs2">
+    	<constructor-arg value="34"/>
+    	<constructor-arg value="leon"/>
+    	<constructor-arg value="Paris"/>
+    	<constructor-arg value="France"/>
+    </bean>
+    
+    <bean class="spring.SpringPractice.Employee" name="mngr1">
+    	<property name="id" value="101"/>
+    	<property name="name" value="John"/>
+    	<property name="projects">
+    		<list>
+    			<value>CMS</value>
+    			<value>ECommerce</value>
+    		</list>
+    	</property>
+    	<property name="adrs">
+    		<set>
+    			<ref bean="adrs1"/>
+    		</set>
+    	</property>
+    	<property name="skills">
+    		<map>
+    			<entry key="Java" value="Advance"/>
+    			<entry key="MERN" value="Advance"/>
+    		</map>
+    	</property>
+    	<property name="exp">
+    		<props>
+    			<prop key="XYZ">5</prop>
+    			<prop key="ABC">10</prop>
+    		</props>
+    	</property>
+    </bean>
+ 
+    <bean class="spring.SpringPractice.Employee" name="emp1">
+    	<property name="id" value="101"/>
+    	<property name="name" value="Mike"/>
+    	<property name="projects" ref="projects"/>
+    	<property name="adrs" ref="adrs"/>
+    	<property name="skills" ref="skills"/>
+    	<property name="exp">
+    		<props>
+    			<prop key="XYZ">5</prop>
+    			<prop key="ABC">10</prop>
+    		</props>
+    	</property>
+    	<property name="manager" ref="mngr1"/>
+    </bean>
+     
+    <bean class="spring.SpringPractice.Employee" name="manager">
+    	<property name="id" value="101"/>
+    	<property name="name" value="John"/>
+    </bean>
+    
+    <bean class="spring.SpringPractice.Employee" name="emp2" autowire="constructor">
+    	<constructor-arg value="102" type="int"/>
+    	<constructor-arg value="Neil"/>
+    	<constructor-arg ref="projects"/>
+    	<constructor-arg ref="skills"/>
+    </bean>
+    
+    -->
+    
+    <bean name="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    	<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+    	<property name="url" value="jdbc:mysql://localhost:3306/demo?useSSL=false"/>
+    	<property name="username" value="root"/>
+    	<property name="password" value="root"/>
+    </bean>
+    
+    <bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    	<constructor-arg ref="ds"/>
+    </bean>
+</beans>
